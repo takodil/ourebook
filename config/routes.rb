@@ -1,4 +1,20 @@
 Ourebook::Application.routes.draw do
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "sign_up" => "sellers#new", :as => "sign_up"
+  root :to => "ebooks#index"
+  resources :sellers
+  resources :buyers
+  resources :sessions
+  resources :ebooks
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

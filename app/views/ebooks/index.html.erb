@@ -1,0 +1,14 @@
+<div class="container">
+  <h3>Top Download Ebooks</h3>
+  <% @ebooks.each do |ebook| %>
+    <div class="ebook">
+      <span class="ebook ebook-cover"><%= image_tag ebook.cover.url(:thumb) %></span><br />
+      <span class="ebook ebook-title"><%= ebook.title %></span><br />
+      <span class="ebook ebook-author"><%= ebook.author %></span><br />
+      <span class="ebook ebook-price">USD<%= ebook.price %></span><br />
+    </div>
+  <% end %>
+  </table>
+  <br />
+  <%= link_to 'Upload new EBook', new_ebook_path %>
+</div>
