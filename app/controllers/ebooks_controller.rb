@@ -2,7 +2,12 @@ class EbooksController < ApplicationController
   # GET /ebooks
   # GET /ebooks.json
   def index
-    @ebooks = Ebook.all
+
+    if params[:tag]
+      @ebooks = Ebook.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 3)
+    else
+      @ebooks = Ebook.paginate(:page => params[:page], :per_page => 3)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

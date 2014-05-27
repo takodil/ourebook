@@ -8,7 +8,8 @@ gem 'rails', '3.2.13'
 
 gem "paperclip", "~> 2.7"
 gem 'activeadmin', github: 'gregbell/active_admin', branch: '0-6-stable'
-
+gem 'acts-as-taggable-on'
+gem 'will_paginate', '~> 3.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

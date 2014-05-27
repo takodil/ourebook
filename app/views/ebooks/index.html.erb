@@ -1,4 +1,9 @@
 <div class="container">
+  <div id="tag_cloud">
+    <% tag_cloud Ebook.tag_counts, %w[s m l] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
   <h3>Top Download Ebooks</h3>
   <% @ebooks.each do |ebook| %>
     <div class="ebook">
@@ -6,9 +11,12 @@
       <span class="ebook ebook-title"><%= ebook.title %></span><br />
       <span class="ebook ebook-author"><%= ebook.author %></span><br />
       <span class="ebook ebook-price">USD<%= ebook.price %></span><br />
+      <span class="ebook ebook-price"><%= raw ebook.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></span><br />
     </div>
   <% end %>
-  </table>
+  <%= will_paginate @posts %>
   <br />
-  <%= link_to 'Upload new EBook', new_ebook_path %>
+  <% if current_seller %>
+    <%= link_to 'Upload new EBook', new_ebook_path %>
+  <% end %>
 </div>
