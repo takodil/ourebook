@@ -8,11 +8,17 @@ Ourebook::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "sign_up" => "sellers#new", :as => "sign_up"
+  get "sign_up_buyer" => "buyers#new", :as => "sign_up_buyer"
   get "tags/:tag", to: 'ebooks#index', as: :tag
+  get "log_in_buyer" => "session_buyers#new", :as => "log_in_buyer"
+  get "log_out_buyer" => "session_buyers#destroy", :as => "log_out_buyer"
+  get "sign_up_options" => "sessions#options_sign_up", :as => "sign_up_options"
+  get "log_in_options" => "sessions#options_log_in", :as => "log_in_options"
   root :to => "ebooks#index"
   resources :sellers
   resources :buyers
   resources :sessions
+  resources :session_buyers
   resources :ebooks
 
 

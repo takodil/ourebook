@@ -5,6 +5,14 @@
 	display : inline-block;
 	text-align: center;
 	padding-right: 10px;
+	.ebook-cover {
+		width: 150px;
+    	height: 150px;
+		img {
+			width: 150px;
+			height: 150px;
+		}
+	}
 }
 #tag_cloud {
 	width: 400px;

@@ -1,0 +1,2 @@
+module SessionsBuyerHelper
+end

@@ -10,7 +10,7 @@ class Seller < ActiveRecord::Base
   attr_accessor :password
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_presence_of :email
+  validates_presence_of :address, :city, :company_name, :country, :email, :first_name, :last_name, :password, :password_confirmation, :postal_code, :telephone_number, :type_of_company
   validates_uniqueness_of :email
   validates :terms, :acceptance => {:accept => true}
   validates :privacy, :acceptance => {:accept => true}

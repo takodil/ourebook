@@ -49,7 +49,7 @@ class EbooksController < ApplicationController
 
     respond_to do |format|
       if @ebook.save
-        format.html { redirect_to @ebook, notice: 'Ebook was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Ebook was successfully created.' }
         format.json { render json: @ebook, status: :created, location: @ebook }
       else
         format.html { render action: "new" }

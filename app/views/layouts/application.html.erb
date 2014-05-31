@@ -8,18 +8,24 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+<div class="title">Our eBook Store</div>
 <div id="user_nav" class="navbar navbar-inverse">
 	<div class="container">
-		<div class="collapse navbar-collapse">
+		<div class="collapse navbar-collapse menubar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Overview</a></li>
+				<li><%= link_to "Overview ", root_path %></li>
 				<li><a href="#">Search</a></li>
+				<li><a href="#">Help</a></li>
 				<% if current_seller %>
-					<li><%= link_to "Logged in as " + current_seller.email, root_path %></li>
-					<li><%= link_to "Log out", log_out_path %></li>
-				<% else %>
-					<li><%= link_to "Sign up", sign_up_path %></li>
-					<li><%= link_to "Log in", log_in_path %></li>
+						<li class="right-menubar"><%= link_to "Logged in as seller " + current_seller.email, root_path %></li>
+						<li class="right-menubar"><%= link_to "Log out", log_out_path %></li>
+    					<li class="right-menubar"><%= link_to 'Upload new ePublication', new_ebook_path %></li>
+				<% elsif current_buyer %>		
+						<li class="right-menubar"><%= link_to "Logged in as buyer " + current_buyer.email, root_path %></li>
+						<li class="right-menubar"><%= link_to "Log out", log_out_buyer_path %></li>
+				<% else %>				
+						<li class="right-menubar"><%= link_to "Sign up", sign_up_options_path %></li>
+						<li class="right-menubar"><%= link_to "Log in", log_in_options_path %></li>
 				<% end %>
 			</ul>
 		</div>

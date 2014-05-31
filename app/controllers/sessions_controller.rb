@@ -14,4 +14,8 @@ class SessionsController < ApplicationController
 		session[:seller_id] = nil
 		redirect_to root_url, :notice => "Logged out!"
 	end
+	def options_sign_up
+	end
+	def options_log_in
+	end
 end
